@@ -1,0 +1,55 @@
+--- # devspaces.yml
+name: ds-neovim
+description:  Development environment for neovim
+
+# If you want to use a different Dockerfile for your DevSpace, provide the path
+# here.
+docker-file: Dockerfile
+
+# If you need additional files when building your Dockerfile, such as some
+# application binaries that your Dockerfile references, list the glob paths to
+# include here. They are relative to this devspaces.yml file.
+docker-build-includes: |
+  **/*
+
+# generic `build` filter cannot be used once we have a source package named `build`.
+sync-ignore: |
+  .git
+  .idea
+  bin/*
+  *.mo
+  .*.sw?
+  *~
+  *.pyc
+  *.o
+  *.so
+  tags
+  /src/nvim/po/vim.pot
+  /src/nvim/po/*.ck
+  /.nvimlog
+  /.vim-src/
+  /src/nvim/testdir/del
+  /src/nvim/testdir/test*.out
+  /src/nvim/testdir/test*.res
+  /src/nvim/testdir/test.log
+  /src/nvim/testdir/messages
+  /src/nvim/testdir/viminfo
+  /src/nvim/testdir/test.ok
+  /src/nvim/testdir/*.failed
+  /src/nvim/testdir/X*
+  /src/nvim/testdir/valgrind.*
+  /src/nvim/testdir/.gdbinit
+  /test/includes/post/
+  /test/.luacheckcache
+  local.mk
+  /runtime/doc/*.html
+  /runtime/doc/tags.ref
+  /runtime/doc/errors.log
+  .ropeproject/
+  /.vs/
+  /build/
+  /cmake-build-debug/
+  /dist/
+  /.deps/
+  /tmp/
+  /Xtest-tmpdir
